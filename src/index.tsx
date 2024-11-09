@@ -10,6 +10,8 @@ root.render(
   <React.StrictMode>
     <App
       placeCount = {5}
+      isAuthorized = {false}
     />
   </React.StrictMode>
 );
+
