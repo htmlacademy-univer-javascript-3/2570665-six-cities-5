@@ -9,8 +9,8 @@ const root = ReactDOM.createRoot(
 root.render(
   <React.StrictMode>
     <App
-      isAuthorized = {false}
       placeCount = {5}
+      isAuthorized = {false}
     />
   </React.StrictMode>
 );

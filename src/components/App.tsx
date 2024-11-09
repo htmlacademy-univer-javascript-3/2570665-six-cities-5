@@ -1,3 +1,4 @@
+
 import {MainPage} from '../pages/MainPage.tsx';
 import {Route, BrowserRouter, Routes} from 'react-router-dom';
 import {HelmetProvider} from 'react-helmet-async';
