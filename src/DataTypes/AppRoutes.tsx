@@ -1,6 +1,7 @@
 export enum AppRoutes {
     MainPage = '/',
-    OfferPage = '/offer/:id',
+    OfferPage = '/offer',
+    OfferPageId = '/offer/:id',
     LoginPage = '/login',
     FavoritesPage = '/favorites',
 }

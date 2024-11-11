@@ -1,59 +1,49 @@
 import React from 'react';
-import {PlaceCardType} from '../DataTypes/PlaceCardType.tsx';
+import { Offer } from '../DataTypes/offerTypes/offer-type.ts';
+import { Link } from 'react-router-dom';
+import { AppRoutes } from '../DataTypes/AppRoutes.tsx';
 
 interface PlaceCardInfo {
-    priceValue: number;
-    cardType: PlaceCardType;
-    name: string;
-    image:string;
-    isPremium?: boolean;
-    isInBookmarks?: boolean;
-    widthValue: string;
+    offers: Offer;
 }
 
 export function PlaceCard({
-  priceValue,
-  cardType,
-  image,
-  name,
-  isPremium,
-  isInBookmarks,
-  widthValue
+  offers
 }: PlaceCardInfo): React.JSX.Element {
   return (
     <article className="cities__card place-card">
-      {isPremium &&
+      {offers.isPremium &&
         <div className="place-card__mark">
           <span>Premium</span>
         </div>}
       <div className="cities__image-wrapper place-card__image-wrapper">
-        <a href="#">
-          <img className="place-card__image" src={`../../markup/img/${image}`} width="260" height="200" alt="Place image"/>
-        </a>
+        <Link to={`${AppRoutes.OfferPage}/${offers.id}`}>
+          <img className="place-card__image" src={`../../markup/img/${offers.previewImg}`} width="260" height="200" alt="Place image"/>
+        </Link>
       </div>
       <div className="place-card__info">
         <div className="place-card__price-wrapper">
           <div className="place-card__price">
-            <b className="place-card__price-value">&euro;{priceValue}</b>
+            <b className="place-card__price-value">&euro;{offers.price}</b>
             <span className="place-card__price-text">&#47;&nbsp;night</span>
           </div>
-          <button className={`place-card__bookmark-button ${isInBookmarks ? 'place-card__bookmark-button--active' : ''} button`} type="button">
+          <button className={`place-card__bookmark-button ${offers.isFavorite ? 'place-card__bookmark-button--active' : ''} button`} type="button">
             <svg className="place-card__bookmark-icon" width="18" height="19">
               <use xlinkHref="#icon-bookmark"></use>
             </svg>
-            <span className="visually-hidden">{isInBookmarks ? 'In bookmarks' : 'To bookmarks'}</span>
+            <span className="visually-hidden">{offers.isFavorite ? 'In bookmarks' : 'To bookmarks'}</span>
           </button>
         </div>
         <div className="place-card__rating rating">
           <div className="place-card__stars rating__stars">
-            <span style={{width: widthValue}}></span>
+            <span style={{width:`${offers.rating * 20}%`}}></span>
             <span className="visually-hidden">Rating</span>
           </div>
         </div>
         <h2 className="place-card__name">
-          <a href="#">{name}</a>
+          <Link to={`${AppRoutes.OfferPage}/${offers.id}`}>{offers.name}</Link>
         </h2>
-        <p className="place-card__type">{cardType}</p>
+        <p className="place-card__type">{offers.type}</p>
       </div>
     </article>
   );

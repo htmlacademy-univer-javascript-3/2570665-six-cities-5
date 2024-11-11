@@ -1,9 +1,13 @@
 import React from 'react';
-import {PlaceCard} from '../components/PlaceCard.tsx';
-import {PlaceCardType} from '../DataTypes/PlaceCardType.tsx';
-import {MainPageProps} from '../DataTypes/MainPageProps.tsx';
+import { OffersList } from '../components/OffersList.tsx';
+import { Offer } from '../DataTypes/offerTypes/offer-type.ts';
 
-export function MainPage({placeCount}: MainPageProps): React.JSX.Element {
+interface MainPageProps {
+    offers: Offer[];
+    placeCount: number;
+}
+
+export function MainPage({offers, placeCount}: MainPageProps): React.JSX.Element {
   return (
     <div className="page page--gray page--main">
       <header className="header">
@@ -93,13 +97,7 @@ export function MainPage({placeCount}: MainPageProps): React.JSX.Element {
                   <li className="places__option" tabIndex={0}>Top rated first</li>
                 </ul>
               </form>
-              <div className="cities__places-list places__list tabs__content">
-                <PlaceCard priceValue={120} cardType={PlaceCardType.Apartment} image="apartment-01.jpg" widthValue="80%" name="Beautiful &amp; luxurious apartment at great location" isPremium/>
-                <PlaceCard priceValue={80} cardType={PlaceCardType.Room} image="room.jpg" widthValue="80%" name="Wood and stone place" isInBookmarks/>
-                <PlaceCard priceValue={132} cardType={PlaceCardType.Apartment} image="apartment-02.jpg" widthValue="80%" name="Canal View Prinsengracht"/>
-                <PlaceCard priceValue={180} cardType={PlaceCardType.Apartment} image="apartment-03.jpg" widthValue="100%" name="Nice, cozy, warm big bed apartment" isPremium/>
-                <PlaceCard priceValue={80} cardType={PlaceCardType.Room} image="room.jpg" widthValue="80%" name="Wood and stone place" isInBookmarks/>
-              </div>
+              <OffersList offers={offers}></OffersList>
             </section>
             <div className="cities__right-section">
               <section className="cities__map map"></section>
