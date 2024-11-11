@@ -1,4 +1,5 @@
 
+import { City } from '../city';
 import { PlaceCardType } from '../room-type';
 
 export type Host ={
@@ -12,7 +13,7 @@ export type Offer = {
     previewImg: string;
     isPremium: boolean;
     isFavorite: boolean;
-    cityName:string;
+    city:City;
     name: string;
     rating: number;
     type: PlaceCardType;
