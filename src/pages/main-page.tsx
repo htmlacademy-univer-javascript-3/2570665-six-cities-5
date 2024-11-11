@@ -1,6 +1,8 @@
 import React from 'react';
 import { OffersList } from '../components/OffersList.tsx';
 import { Offer } from '../DataTypes/offerTypes/offer-type.ts';
+import { Map } from '../components/Map.tsx';
+import { CITY } from '../mocks/cities.ts';
 
 interface MainPageProps {
     offers: Offer[];
@@ -100,7 +102,7 @@ export function MainPage({offers, placeCount}: MainPageProps): React.JSX.Element
               <OffersList offers={offers}></OffersList>
             </section>
             <div className="cities__right-section">
-              <section className="cities__map map"></section>
+              <Map city={CITY} points={offers} selectedPoint={undefined}></Map>
             </div>
           </div>
         </div>

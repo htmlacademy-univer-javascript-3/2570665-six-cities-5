@@ -10,6 +10,7 @@ import { OfferPage } from '../pages/offer-page.tsx';
 import { Authorization } from './Authorization.tsx';
 import { Offer } from '../DataTypes/offerTypes/offer-type.ts';
 
+
 interface AppProps {
     offers: Offer[];
 }

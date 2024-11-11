@@ -43,9 +43,9 @@ export function FavoritesPage({offers}: FavoritesPageProps): React.JSX.Element {
           <section className="favorites">
             <h1 className="favorites__title">Saved listing</h1>
             <ul className="favorites__list">
-              {Map.groupBy(offers, (o) => o.cityName)
+              {Map.groupBy(offers, (o:Offer) => o.city.title)
                 .entries()
-                .map(([cityName, offersInCity]) => (
+                .map(([cityName, offersInCity]:[string, Offer[]]) => (
                   <FavoritesList
                     key={cityName}
                     cityName={cityName}
