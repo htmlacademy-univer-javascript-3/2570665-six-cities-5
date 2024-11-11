@@ -15,7 +15,7 @@ export function ReviewForm() {
     <form className="reviews__form form" action="#" method="post">
       <label className="reviews__label form__label" htmlFor="review">Your review</label>
       <div className="reviews__rating-form form__rating">
-      <input className="form__rating-input visually-hidden" onChange={handleFieldChange} name="rating" value={1} id={`${1}-stars`} type="radio" />
+        <input className="form__rating-input visually-hidden" onChange={handleFieldChange} name="rating" value={1} id={`${1}-stars`} type="radio" />
         <label htmlFor={`${1}-stars`} className="reviews__rating-label form__rating-label" title='terribly'>
           <svg className="form__star-image" width="37" height="33">
             <use xlinkHref="#icon-star"></use>

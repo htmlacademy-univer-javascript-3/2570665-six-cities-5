@@ -53,7 +53,7 @@ export function FavoritesPage({offers}: FavoritesPageProps): React.JSX.Element {
                   />
                 ))
                 .toArray()}
-                ;
+              ;
             </ul>
           </section>
         </div>
