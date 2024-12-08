@@ -8,10 +8,11 @@ export const offer: Offer[] = [
     'isPremium': true,
     'isFavorite':true,
     'city': {
-      'title':'Amsterdam',
+      'title':'Paris',
       'latitude':52.3909553943508,
       'longitude':4.85309666406198,
       'zoom':2,
+      'id':'1'
     },
     'name': 'Beautiful & luxurious studio at great location',
     'rating': 4,
@@ -33,6 +34,7 @@ export const offer: Offer[] = [
       'latitude':52.3609553943508,
       'longitude':4.85309666406198,
       'zoom':2,
+      'id':'4'
     },
     'name': 'Wood and stone place',
     'rating': 5,
@@ -54,6 +56,7 @@ export const offer: Offer[] = [
       'latitude':52.3609553943508,
       'longitude':4.929309666406198,
       'zoom':2,
+      'id':'4'
     },
     'name': 'Lalala',
     'rating': 3,
@@ -75,6 +78,7 @@ export const offer: Offer[] = [
       'latitude':52.3809553943508,
       'longitude':4.929309666406198,
       'zoom':2,
+      'id':'4'
     },
     'name': 'Chipi Chipi Chapa Chapa',
     'rating': 1,
