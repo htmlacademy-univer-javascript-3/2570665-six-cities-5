@@ -11,7 +11,7 @@ export function MainPage(): React.JSX.Element {
   const city = useAppSelector((state) => state.city);
   const [cityOffers, setCurrentOffers] = useState<Offer[]>(offers);
   const [offerId] = useState<string | null>(null);
-  const selectedOffer = offers.find((offer) => offer.id === offerId);
+  const selectOffer = offers.find((offer) => offer.id === offerId);
   useEffect(() => {
     const filtered = offers.filter((offer) => offer.city.title === city.title);
     setCurrentOffers(filtered);
@@ -78,7 +78,7 @@ export function MainPage(): React.JSX.Element {
               <OffersList offers={cityOffers}></OffersList>
             </section>
             <div className="cities__right-section">
-              <Map city={offers[0].city} points={cityOffers} selectedPoint={selectedOffer}></Map>
+              <Map city={offers[0].city} points={cityOffers} selectedPoint={selectOffer}></Map>
             </div>
           </div>
         </div>
