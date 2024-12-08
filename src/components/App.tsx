@@ -8,27 +8,22 @@ import { FavoritesPage } from '../pages/favorites-page.tsx';
 import { LoginPage } from '../pages/login-page.tsx';
 import { OfferPage } from '../pages/offer-page.tsx';
 import { Authorization } from './Authorization.tsx';
-import { Offer } from '../DataTypes/offerTypes/offer-type.ts';
+import { offer } from '../mocks/offers.ts';
 
-
-interface AppProps {
-    offers: Offer[];
-}
-
-export function App({offers}: AppProps): JSX.Element {
+export function App(): JSX.Element {
   return (
     <HelmetProvider>
       <BrowserRouter>
         <Routes>
           <Route
             path={AppRoutes.MainPage}
-            element={<MainPage placeCount={5} offers={offers}/>}
+            element={<MainPage />}
           />
           <Route
             path={AppRoutes.FavoritesPage}
             element={
               <Authorization authorizationStatus>
-                <FavoritesPage offers={offers}/>
+                <FavoritesPage offers={offer}/>
               </Authorization>
             }
           />
@@ -38,7 +33,7 @@ export function App({offers}: AppProps): JSX.Element {
           />
           <Route
             path={AppRoutes.OfferPageId}
-            element={<OfferPage offers={offers}/>}
+            element={<OfferPage offers={offer}/>}
           />
           <Route
             path="*"
