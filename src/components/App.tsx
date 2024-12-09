@@ -9,8 +9,19 @@ import { LoginPage } from '../pages/login-page.tsx';
 import { OfferPage } from '../pages/offer-page.tsx';
 import { Authorization } from './Authorization.tsx';
 import { offer } from '../mocks/offers.ts';
+import { useAppSelector } from '../hoocks/index.ts';
+import { Spinner } from '../pages/spinner-page.tsx';
+
 
 export function App(): JSX.Element {
+  const dataOffersLoadingStatus = useAppSelector((state) => state.dataStatus);
+
+  if (dataOffersLoadingStatus) {
+    return (
+      <Spinner />
+    );
+  }
+
   return (
     <HelmetProvider>
       <BrowserRouter>
@@ -23,7 +34,7 @@ export function App(): JSX.Element {
             path={AppRoutes.FavoritesPage}
             element={
               <Authorization authorizationStatus>
-                <FavoritesPage offers={offer}/>
+                <FavoritesPage />
               </Authorization>
             }
           />

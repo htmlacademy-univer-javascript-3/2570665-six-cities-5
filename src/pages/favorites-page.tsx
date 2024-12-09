@@ -1,12 +1,10 @@
 import React from 'react';
 import { FavoritesList } from '../components/FavoritesList.tsx';
 import { Offer } from '../DataTypes/offerTypes/offer-type.ts';
+import { useAppSelector } from '../hoocks/index.ts';
 
-interface FavoritesPageProps {
-    offers: Offer[];
-}
-
-export function FavoritesPage({offers}: FavoritesPageProps): React.JSX.Element {
+export function FavoritesPage(): React.JSX.Element {
+  const offers = useAppSelector((state) => state.offersList).filter((offer) => offer.isFavorite);
   return (
     <div className="page">
       <header className="header">
