@@ -1,10 +1,6 @@
 import React from 'react';
-import { FavoritesList } from '../components/FavoritesList.tsx';
-import { Offer } from '../DataTypes/offerTypes/offer-type.ts';
-import { useAppSelector } from '../hoocks/index.ts';
 
 export function FavoritesPage(): React.JSX.Element {
-  const offers = useAppSelector((state) => state.offersList).filter((offer) => offer.isFavorite);
   return (
     <div className="page">
       <header className="header">
@@ -41,17 +37,6 @@ export function FavoritesPage(): React.JSX.Element {
           <section className="favorites">
             <h1 className="favorites__title">Saved listing</h1>
             <ul className="favorites__list">
-              {Map.groupBy(offers, (o:Offer) => o.city.title)
-                .entries()
-                .map(([cityName, offersInCity]:[string, Offer[]]) => (
-                  <FavoritesList
-                    key={cityName}
-                    cityName={cityName}
-                    offers={offersInCity}
-                  />
-                ))
-                .toArray()}
-              ;
             </ul>
           </section>
         </div>
