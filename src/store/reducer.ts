@@ -1,13 +1,13 @@
 
-import { offer } from '../mocks/offers';
 import {createReducer} from '@reduxjs/toolkit';
-import { changeCity, fillOffers } from './actions';
+import { changeCity, fillOffers, setDataStatus } from './actions';
 import { City } from '../DataTypes/city';
 import { Offer } from '../DataTypes/offerTypes/offer-type';
 
 type initialStateTypes ={
   city: City;
   offersList: Offer[];
+  dataStatus: boolean;
 }
 
 const initialState: initialStateTypes = {
@@ -18,7 +18,8 @@ const initialState: initialStateTypes = {
     longitude: 2.351556,
     zoom: 12
   },
-  offersList: offer
+  offersList: [],
+  dataStatus: false,
 };
 
 export const reducer = createReducer(initialState, (builder) => {
@@ -28,6 +29,9 @@ export const reducer = createReducer(initialState, (builder) => {
     })
     .addCase(fillOffers, (state, action) => {
       state.offersList = action.payload;
+    })
+    .addCase(setDataStatus, (state, action) => {
+      state.dataStatus = action.payload;
     });
 });
 
