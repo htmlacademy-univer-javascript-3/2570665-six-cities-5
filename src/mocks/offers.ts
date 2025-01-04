@@ -1,94 +1,116 @@
-import { Offer } from '../DataTypes/offerTypes/offer-type';
-import { PlaceCardType } from '../DataTypes/room-type';
+import { Offer } from '../DataTypes/offer-type';
+import { PlaceType } from '../DataTypes/room-type';
 
 export const offer: Offer[] = [
   {
-    'id': '1',
-    'previewImg': 'img02.jpg',
-    'isPremium': true,
-    'isFavorite':true,
-    'city': {
-      'title':'Paris',
-      'latitude':52.3909553943508,
-      'longitude':4.85309666406198,
-      'zoom':2,
-      'id':'1'
+    id: '6af6f711-c28d-4121-82cd-e0b462a27f00',
+    title: 'Beautiful & luxurious studio at great location',
+    type: PlaceType.Apartment,
+    price: 120,
+    city: {
+      name: 'Paris',
+      location: {
+        latitude: 52.35514938496378,
+        longitude: 4.673877537499948,
+        zoom: 8
+      }
     },
-    'name': 'Beautiful & luxurious studio at great location',
-    'rating': 4,
-    'type': PlaceCardType.Apartment,
-    'price': 120,
-    'host': {
-      'img':'img01.jpg',
-      'hostName':'Angelina',
-      'isPro':true,
+    location: {
+      latitude: 52.35514938496378,
+      longitude: 4.673877537499948,
+      zoom: 8
     },
+    isFavorite: false,
+    isPremium: false,
+    rating: 4,
+    description: 'A quiet cozy and picturesque that hides behind a a river by the unique lightness of Amsterdam.',
+    bedrooms: 3,
+    goods: [
+      'Heating'
+    ],
+    host: {
+      name: 'Oliver Conner',
+      avatarUrl: 'https://url-to-image/image.png',
+      isPro: false
+    },
+    images: [
+      'https://url-to-image/image.png'
+    ],
+    maxAdults: 4
   },
+
   {
-    'id': '2',
-    'previewImg': 'img02.jpg',
-    'isPremium': true,
-    'isFavorite': false,
-    'city': {
-      'title':'Amsterdam',
-      'latitude':52.3609553943508,
-      'longitude':4.85309666406198,
-      'zoom':2,
-      'id':'4'
+    id: '6af6f711-c28d-4121-82cd-e0b462a27f0',
+    title: 'Hmm',
+    type: PlaceType.Room,
+    price: 120000,
+    city: {
+      name: 'Amsterdam',
+      location: {
+        latitude: 52.35514938496378,
+        longitude: 8.673877537499948,
+        zoom: 8
+      }
     },
-    'name': 'Wood and stone place',
-    'rating': 5,
-    'type': PlaceCardType.Apartment,
-    'price': 11,
-    'host': {
-      'img':'img01.jpg',
-      'hostName':'Sara',
-      'isPro':true,
+    location: {
+      latitude: 52.35514938496378,
+      longitude: 8.673877537499948,
+      zoom: 8
     },
+    isFavorite: false,
+    isPremium: false,
+    rating: 2,
+    description: 'A quiet cozy and picturesque that hides behind a a river by the unique lightness of Amsterdam.',
+    bedrooms: 2,
+    goods: [
+      'Heating'
+    ],
+    host: {
+      name: 'Oliver Conner',
+      avatarUrl: 'https://url-to-image/image.png',
+      isPro: true
+    },
+    images: [
+      'https://url-to-image/image.png'
+    ],
+    maxAdults: 4
   },
+
   {
-    'id': '3',
-    'previewImg': 'img02.jpg',
-    'isPremium': false,
-    'isFavorite':true,
-    'city': {
-      'title':'Amsterdam',
-      'latitude':52.3609553943508,
-      'longitude':4.929309666406198,
-      'zoom':2,
-      'id':'4'
+    id: '6af6f711-c28d-4121-82cd-e0b462a27f',
+    title: 'YupYup',
+    type: PlaceType.Hotel,
+    price: 12,
+    city: {
+      name: 'Paris',
+      location: {
+        latitude: 52.35514938496378,
+        longitude: 7.673877537499948,
+        zoom: 8
+      }
     },
-    'name': 'Lalala',
-    'rating': 3,
-    'type': PlaceCardType.Apartment,
-    'price': 12,
-    'host': {
-      'img':'img01.jpg',
-      'hostName':'Tom',
-      'isPro': false,
+    location: {
+      latitude: 52.35514938496378,
+      longitude: 7.673877537499948,
+      zoom: 8
     },
-  },
-  {
-    'id': '4',
-    'previewImg': 'img02.jpg',
-    'isPremium': false,
-    'isFavorite': false,
-    'city': {
-      'title':'Amsterdam',
-      'latitude':52.3809553943508,
-      'longitude':4.929309666406198,
-      'zoom':2,
-      'id':'4'
+    isFavorite: true,
+    isPremium: true,
+    rating: 5,
+    description: 'A quiet cozy and picturesque that hides behind a a river by the unique lightness of Amsterdam.',
+    bedrooms: 6,
+    goods: [
+      'Heating'
+    ],
+    host: {
+      name: 'Oliver Conner',
+      avatarUrl: 'https://url-to-image/image.png',
+      isPro: false
     },
-    'name': 'Chipi Chipi Chapa Chapa',
-    'rating': 1,
-    'type': PlaceCardType.Room,
-    'price': 2321,
-    'host': {
-      'img':'img01.jpg',
-      'hostName':'Alex',
-      'isPro':true,
-    },
-  },
+    images: [
+      'https://url-to-image/image.png'
+    ],
+    maxAdults: 4
+  }
 
 ];

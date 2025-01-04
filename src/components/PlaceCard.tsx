@@ -1,24 +1,26 @@
 import React from 'react';
-import { Offer } from '../DataTypes/offerTypes/offer-type.ts';
+import { Offer } from '../DataTypes/offer-type.ts';
 import { Link } from 'react-router-dom';
 import { AppRoutes } from '../DataTypes/AppRoutes.tsx';
 
 interface PlaceCardInfo {
     offers: Offer;
+    isOnMainPage?: boolean;
 }
 
 export function PlaceCard({
-  offers
+  offers,
+  isOnMainPage
 }: PlaceCardInfo): React.JSX.Element {
   return (
-    <article className="cities__card place-card">
+    <article className={ `place-card ${isOnMainPage ? 'cities__card' : 'near-places__card'}`}>
       {offers.isPremium &&
         <div className="place-card__mark">
           <span>Premium</span>
         </div>}
-      <div className="cities__image-wrapper place-card__image-wrapper">
+      <div className={ `place-card__image-wrapper ${isOnMainPage ? 'cities__image-wrapper' : 'near-places__image-wrapper'}`}>
         <Link to={`${AppRoutes.OfferPage}/${offers.id}`}>
-          <img className="place-card__image" src={`../../markup/img/${offers.previewImg}`} width="260" height="200" alt="Place image"/>
+          <img className="place-card__image" src={`../../markup/img/${offers.images[0]}`} width="260" height="200" alt="Place image"/>
         </Link>
       </div>
       <div className="place-card__info">
@@ -41,7 +43,7 @@ export function PlaceCard({
           </div>
         </div>
         <h2 className="place-card__name">
-          <Link to={`${AppRoutes.OfferPage}/${offers.id}`}>{offers.name}</Link>
+          <Link to={`${AppRoutes.OfferPage}/${offers.id}`}>{offers.title}</Link>
         </h2>
         <p className="place-card__type">{offers.type}</p>
       </div>

@@ -1,4 +1,4 @@
-import { Offer } from '../DataTypes/offerTypes/offer-type';
+import { Offer } from '../DataTypes/offer-type';
 import { OffersList } from './OffersList';
 
 interface FavoritesListProps {

@@ -4,7 +4,8 @@ import {useRef, useEffect} from 'react';
 import leaflet from 'leaflet';
 import 'leaflet/dist/leaflet.css';
 import { City } from '../DataTypes/city';
-import { Offer } from '../DataTypes/offerTypes/offer-type';
+import { Offer } from '../DataTypes/offer-type';
+import { Marker, layerGroup } from 'leaflet';
 
 const defaultCustomIcon = leaflet.icon({
   iconUrl: URL_MARKER_DEFAULT,
@@ -22,32 +23,40 @@ interface MapProps {
     city: City;
     points: Offer[];
     selectedPoint: Offer | undefined;
+    isOnMainPage?: boolean;
 }
 
-export function Map({city, points, selectedPoint}: MapProps) {
+export function Map({city, points, selectedPoint, isOnMainPage}: MapProps) {
+
   const mapRef = useRef(null);
   const map = useMap(mapRef, city);
 
   useEffect(() => {
     if (map) {
+      const markerLayer = layerGroup().addTo(map);
       points.forEach((point) => {
-        leaflet
-          .marker({
-            lat: point.city.latitude,
-            lng: point.city.longitude,
-          }, {
-            icon: (selectedPoint !== undefined && point.city === selectedPoint.city)
+        const marker = new Marker({
+          lat: point.location.latitude,
+          lng: point.location.longitude,
+        });
+
+        marker
+          .setIcon(
+            selectedPoint !== undefined && point.id === selectedPoint.id
               ? currentCustomIcon
               : defaultCustomIcon,
-          })
-          .addTo(map);
+          )
+          .addTo(markerLayer);
       });
+
+      return () => {
+        map.removeLayer(markerLayer);
+      };
     }
   }, [map, points, selectedPoint]);
 
-
+  const className = isOnMainPage ? 'cities__map map' : 'offer__map map';
   return (
-    <section className="cities__map map" ref={mapRef}></section>
+    <section className={className} ref={mapRef}></section>
   );
 }
-
