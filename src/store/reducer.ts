@@ -1,28 +1,14 @@
-
+import { offer } from '../mocks/offers';
 import {createReducer} from '@reduxjs/toolkit';
-import { changeCity, fillOffers, setAuthStatus, setDataStatus } from './actions';
-import { City } from '../DataTypes/city';
-import { Offer } from '../DataTypes/offerTypes/offer-type';
-import { AuthorizationStatus } from '../DataTypes/auth-types';
+import { changeCity, fillOffers, sorting } from './actions';
+import { Offer } from '../DataTypes/offer-type';
+import { Cities } from '../mocks/cities';
 
-type initialStateTypes ={
-  city: City;
-  offersList: Offer[];
-  dataStatus: boolean;
-  authStatus: AuthorizationStatus;
-}
 
-const initialState: initialStateTypes = {
-  city: {
-    title: 'Paris',
-    id: '1',
-    latitude: 48.856663,
-    longitude: 2.351556,
-    zoom: 12
-  },
-  offersList: [],
-  dataStatus: false,
-  authStatus: AuthorizationStatus.Unknown,
+const initialState = {
+  city: Cities[0],
+  offersList: offer,
+  sorting: (offers: Offer[]) => offers,
 };
 
 export const reducer = createReducer(initialState, (builder) => {
@@ -33,11 +19,7 @@ export const reducer = createReducer(initialState, (builder) => {
     .addCase(fillOffers, (state, action) => {
       state.offersList = action.payload;
     })
-    .addCase(setDataStatus, (state, action) => {
-      state.dataStatus = action.payload;
-    })
-    .addCase(setAuthStatus, (state, action) => {
-      state.authStatus = action.payload;
+    .addCase(sorting, (state, action) => {
+      state.sorting = action.payload;
     });
 });
-

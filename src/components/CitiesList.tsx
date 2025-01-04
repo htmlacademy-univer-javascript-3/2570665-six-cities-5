@@ -13,12 +13,12 @@ export function CitiesList({ cities }: CitiesListProps) {
     <ul className="locations__list tabs__list">
       {cities.map((city) => (
         <li
-          key={city.title}
+          key={city.name}
           className="locations__item"
           onClick={() => dispatch(changeCity(city))}
         >
           <a className="locations__item-link tabs__item" href="#">
-            <span>{city.title}</span>
+            <span>{city.name}</span>
           </a>
         </li>
       ))}

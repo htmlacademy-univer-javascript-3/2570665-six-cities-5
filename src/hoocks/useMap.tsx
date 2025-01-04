@@ -11,10 +11,10 @@ export function useMap(mapRef: MutableRefObject<HTMLElement | null>, city: City)
     if (mapRef.current !== null && !isRenderedRef.current) {
       const instance = leaflet.map(mapRef.current, {
         center: {
-          lat: city.latitude,
-          lng: city.longitude,
+          lat: city.location.latitude,
+          lng: city.location.longitude,
         },
-        zoom: city.zoom,
+        zoom: city.location.zoom,
       });
 
       leaflet
@@ -33,5 +33,3 @@ export function useMap(mapRef: MutableRefObject<HTMLElement | null>, city: City)
 
   return map;
 }
-
-

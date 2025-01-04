@@ -1,6 +1,12 @@
 import React from 'react';
+import { FavoritesList } from '../components/FavoritesList.tsx';
+import { Offer } from '../DataTypes/offer-type.ts';
 
-export function FavoritesPage(): React.JSX.Element {
+interface FavoritesPageProps {
+    offers: Offer[];
+}
+
+export function FavoritesPage({offers}: FavoritesPageProps): React.JSX.Element {
   return (
     <div className="page">
       <header className="header">
@@ -37,6 +43,17 @@ export function FavoritesPage(): React.JSX.Element {
           <section className="favorites">
             <h1 className="favorites__title">Saved listing</h1>
             <ul className="favorites__list">
+              {Map.groupBy(offers, (o:Offer) => o.city.name)
+                .entries()
+                .map(([cityName, offersInCity]:[string, Offer[]]) => (
+                  <FavoritesList
+                    key={cityName}
+                    cityName={cityName}
+                    offers={offersInCity}
+                  />
+                ))
+                .toArray()}
+              ;
             </ul>
           </section>
         </div>
