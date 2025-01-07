@@ -1,25 +1,10 @@
-import { offer } from '../mocks/offers';
-import {createReducer} from '@reduxjs/toolkit';
-import { changeCity, fillOffers, sorting } from './actions';
-import { Offer } from '../DataTypes/offer-type';
-import { Cities } from '../mocks/cities';
+import { combineReducers } from '@reduxjs/toolkit';
+import { currentOfferSlice } from './current/current-slice';
+import { offersSlice } from './offer/offer-slice';
+import { userSlice } from './user/user-slice';
 
-
-const initialState = {
-  city: Cities[0],
-  offersList: offer,
-  sorting: (offers: Offer[]) => offers,
-};
-
-export const reducer = createReducer(initialState, (builder) => {
-  builder
-    .addCase(changeCity, (state, action) => {
-      state.city = action.payload;
-    })
-    .addCase(fillOffers, (state, action) => {
-      state.offersList = action.payload;
-    })
-    .addCase(sorting, (state, action) => {
-      state.sorting = action.payload;
-    });
+export const reducer = combineReducers({
+  ['Offers']: offersSlice.reducer,
+  ['CurrentOffer']: currentOfferSlice.reducer,
+  ['User']: userSlice.reducer,
 });
