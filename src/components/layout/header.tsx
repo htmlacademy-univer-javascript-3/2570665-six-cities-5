@@ -5,12 +5,13 @@ import { AppRoute } from '../../dataTypes/enums/app-routes';
 import { UnauthorizedHeaderInfo } from './unauthorized-user';
 import { useAppDispatch, useAppSelector } from '../../hooks/store-hooks';
 import { fetchOffers } from '../../store/actions';
+import { memo } from 'react';
 
 interface HeaderProps {
   isShowInfo: boolean;
 }
 
-export function Header({ isShowInfo }: HeaderProps) {
+function HeaderImpl({ isShowInfo }: HeaderProps) {
   const dispatch = useAppDispatch();
   const isAuthorized = useAppSelector(getIsAuthorized);
   return (
@@ -32,3 +33,5 @@ export function Header({ isShowInfo }: HeaderProps) {
     </header>
   );
 }
+
+export const Header = memo(HeaderImpl);

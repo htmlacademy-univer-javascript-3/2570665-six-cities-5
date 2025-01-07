@@ -1,11 +1,11 @@
-import React, { useState } from 'react';
+import React, { memo, useState } from 'react';
 import { SortOffers } from '../../dataTypes/filter-type';
 import { setSorting } from '../../store/offer/offer-slice';
 import { useAppDispatch } from '../../hooks/store-hooks';
 import { filterOptions } from './filter-options';
 
 
-export function OfferFilter(): React.JSX.Element {
+function OfferFilterImpl(): React.JSX.Element {
   const [isOpen, setIsOpen] = useState(false);
   const [filter, setFilter] = useState('Popular');
   const dispatch = useAppDispatch();
@@ -37,3 +37,4 @@ export function OfferFilter(): React.JSX.Element {
   );
 }
 
+export const OfferFilter = memo(OfferFilterImpl);

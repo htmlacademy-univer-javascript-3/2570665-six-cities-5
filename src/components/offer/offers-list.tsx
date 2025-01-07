@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useCallback } from 'react';
 import { Nullable } from 'vitest';
 import { OfferCardInfo } from '../../dataTypes/offer';
 import { OfferCard } from './offer';
@@ -14,12 +14,14 @@ export function OffersList({
   onActiveOfferChange,
   isOnMainPage,
 }: OffersListProps): React.JSX.Element {
-  const handleMouseEnter = (offer: OfferCardInfo) => {
-    onActiveOfferChange?.(offer);
-  };
-  const handleMouseLeave = () => {
-    onActiveOfferChange?.(null);
-  };
+  const handleMouseEnter = useCallback(
+    (offer: OfferCardInfo) => onActiveOfferChange?.(offer),
+    [onActiveOfferChange],
+  );
+  const handleMouseLeave = useCallback(
+    () => onActiveOfferChange?.(null),
+    [onActiveOfferChange],
+  );
   return (
     <div className="cities__places-list places__list tabs__content">
       {offers.map((offer) => (

@@ -2,6 +2,7 @@ import { Link } from 'react-router-dom';
 import { Rating } from '../rating.tsx';
 import { OfferCardInfo } from '../../dataTypes/offer.ts';
 import { AppRoute } from '../../dataTypes/enums/app-routes.tsx';
+import { memo } from 'react';
 
 interface OfferCardProps {
   offer: OfferCardInfo;
@@ -10,7 +11,7 @@ interface OfferCardProps {
   isOnMainPage?: boolean;
 }
 
-export function OfferCard({
+function OfferCardImpl({
   offer,
   onMouseEnter,
   onMouseLeave,
@@ -49,3 +50,4 @@ export function OfferCard({
 }
 
 
+export const OfferCard = memo(OfferCardImpl);
