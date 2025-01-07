@@ -6,11 +6,10 @@ import { FavoritesPage } from '../pages/favorites-page/favorites-page.tsx';
 import { LoginPage } from '../pages/login-page/login-page.tsx';
 import { MainPage } from '../pages/main-page/main-page.tsx';
 import { OfferPage } from '../pages/offer-page/offer-page.tsx';
-import { AuthorizationWrapper } from './authorization.tsx';
 import { AppRoute } from '../dataTypes/enums/app-routes.tsx';
 import { store } from '../store/store.ts';
 import { Provider } from 'react-redux';
-
+import { AuthorizationWrapper } from './authorization.tsx';
 
 export function App(): React.JSX.Element {
   return (

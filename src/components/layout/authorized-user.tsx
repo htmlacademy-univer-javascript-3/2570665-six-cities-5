@@ -5,9 +5,10 @@ import { getFavoritesOffers } from '../../store/offer/offer-selector';
 import { setFavoriteOffers} from '../../store/offer/offer-slice';
 import { getUserInfo } from '../../store/user/user-selectors';
 import { useAppSelector, useAppDispatch } from '../../hooks/store-hooks';
+import { memo } from 'react';
 
 
-export function AuthorizedHeaderInfo() {
+export function AuthorizedHeaderInfoImpl() {
   const userInformation = useAppSelector(getUserInfo);
   const favoritesNumber = useAppSelector(getFavoritesOffers);
   const dispatch = useAppDispatch();
@@ -40,3 +41,5 @@ export function AuthorizedHeaderInfo() {
     </nav>
   );
 }
+
+export const AuthorizedHeaderInfo = memo(AuthorizedHeaderInfoImpl);
