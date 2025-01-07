@@ -1,11 +1,11 @@
 import { Helmet } from 'react-helmet-async';
 import { FormEvent, useState } from 'react';
 import { Layout } from '../../components/layout/layout';
-import { LoginInfo } from '../../dataTypes/authorization-info';
+import { LoginInfo } from '../../types/authorization-info';
 import { login } from '../../store/actions';
 import { useAppDispatch } from '../../hooks/store-hooks';
 import { Link } from 'react-router-dom';
-import { AppRoute } from '../../dataTypes/enums/app-routes';
+import { AppRoute } from '../../types/enums/app-routes';
 import { changeCity } from '../../store/offer/offer-slice';
 import { CITIES } from '../../consts/city';
 import { validateEmail } from '../../helpers';

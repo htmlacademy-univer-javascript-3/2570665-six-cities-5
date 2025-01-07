@@ -1,9 +1,9 @@
 import { Navigate } from 'react-router-dom';
-import { AuthorizationStatus } from '../dataTypes/enums/authorization-status';
+import { AuthorizationStatus } from '../types/enums/authorization-status';
 import { useAppSelector } from '../hooks/store-hooks';
 import { getAuthorizationStatus } from '../store/user/user-selectors';
 import { Spinner } from './spinner/spinner';
-import { AppRoute } from '../dataTypes/enums/app-routes';
+import { AppRoute } from '../types/enums/app-routes';
 
 interface AuthorizationWrapperProps {
   children: React.JSX.Element;

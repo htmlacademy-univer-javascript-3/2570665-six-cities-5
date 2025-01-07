@@ -2,18 +2,18 @@ import { createAsyncThunk } from '@reduxjs/toolkit';
 import axios, { AxiosError, AxiosInstance } from 'axios';
 import { toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
-import { AppDispatch, State } from '../dataTypes/state';
-import { OfferCardInfo } from '../dataTypes/offer';
-import { setOffers } from './offer/offer-slice';
-import { Offer } from '../dataTypes/offer';
+import { AppDispatch, State } from '../types/state';
+import { OfferCardInfo } from '../types/offer';
+import { setFavoriteOffers, setOffers } from './offer/offer-slice';
+import { Offer } from '../types/offer';
 import { setCurrentOffer, setCurrentReviews, setNearbyOffers, setReviewPostingStatus } from './current/current-slice';
-import { Review, ReviewShortInfo } from '../dataTypes/review-type';
-import { AuthorizationStatus } from '../dataTypes/enums/authorization-status';
-import { ReviewStatus } from '../dataTypes/enums/review-send-status';
+import { Review, ReviewShortInfo } from '../types/review-type';
+import { AuthorizationStatus } from '../types/enums/authorization-status';
+import { ReviewStatus } from '../types/enums/review-send-status';
 import { setAuthorizationStatus, setUserInfo } from './user/user-slice';
 import { saveToken, dropToken } from '../api/token-helpers';
-import { LoginInfo, AuthInfo } from '../dataTypes/authorization-info';
-import { ApiRoute } from '../dataTypes/enums/api-routes';
+import { LoginInfo, AuthInfo } from '../types/authorization-info';
+import { ApiRoute } from '../types/enums/api-routes';
 
 export const fetchOffers = createAsyncThunk<
   void,
@@ -51,6 +51,40 @@ export const fetchOffer = createAsyncThunk<
     }
   }
 });
+
+export const fetchFavoriteOffers = createAsyncThunk<
+  void,
+  undefined,
+  {
+    dispatch: AppDispatch;
+    state: State;
+    extra: AxiosInstance;
+  }
+>('offers/fetchFavorites', async (_arg, { dispatch, extra: api }) => {
+  const response = await api.get<OfferCardInfo[]>(ApiRoute.Favorites);
+  if (response.status === 200) {
+    dispatch(setFavoriteOffers(response.data));
+  }
+});
+
+
+export const bookmarkOffer = createAsyncThunk<
+  void,
+  { offerId: string; status: boolean },
+  {
+    dispatch: AppDispatch;
+    state: State;
+    extra: AxiosInstance;
+  }
+>('review/fetchReviews', async (info, { dispatch, extra: api }) => {
+  const response = await api.post(
+    `${ApiRoute.Favorites}/${info.offerId}/${+info.status}`,
+  );
+  if (response.status === 201 || response.status === 200) {
+    dispatch(fetchFavoriteOffers());
+  }
+});
+
 
 export const fetchNearbyOffers = createAsyncThunk<
   void,
@@ -128,6 +162,7 @@ export const login = createAsyncThunk<
       dispatch(setAuthorizationStatus(AuthorizationStatus.Authorized));
       saveToken(response.data.token);
       dispatch(setUserInfo(response.data));
+      dispatch(fetchFavoriteOffers());
     }
   } catch (err) {
     const error = err as Error | AxiosError;

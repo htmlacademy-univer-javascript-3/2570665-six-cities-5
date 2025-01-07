@@ -1,5 +1,5 @@
 import { Helmet } from 'react-helmet-async';
-import { Map } from '../../components/map.tsx';
+import { Map } from '../../components/map-component.tsx';
 import React, { useEffect } from 'react';
 import { Navigate, useParams } from 'react-router-dom';
 import { Layout } from '../../components/layout/layout.tsx';
@@ -11,9 +11,10 @@ import { getRightSpelling } from '../../helpers.ts';
 import { fetchOffer, fetchNearbyOffers, fetchReviews } from '../../store/actions.ts';
 import { getNearbyOffers, getCurrentOffer, getCurrentReviews } from '../../store/current/current-selector.ts';
 import { setCurrentOffer } from '../../store/current/current-slice.ts';
-import { AppRoute } from '../../dataTypes/enums/app-routes.tsx';
+import { AppRoute } from '../../types/enums/app-routes.tsx';
 import { useAppSelector } from '../../hooks/store-hooks.ts';
 import { store } from '../../store/store.ts';
+import { BookmarkButton } from '../../components/bookmark-button.tsx';
 
 export function OfferPage(): React.JSX.Element {
   const offerId = useParams().id;
@@ -57,7 +58,12 @@ export function OfferPage(): React.JSX.Element {
                     )}
                     <div className="offer__name-wrapper">
                       <h1 className="offer__name">{currentOffer.title}</h1>
-                      <button>Add</button>
+                      <BookmarkButton
+                        size
+                        isFavorite={currentOffer.isFavorite}
+                        usagePlace="offer"
+                        offerId={currentOffer.id}
+                      />
                     </div>
                     <Rating
                       rating={currentOffer.rating}

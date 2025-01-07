@@ -1,8 +1,9 @@
 import { Link } from 'react-router-dom';
 import { Rating } from '../rating.tsx';
-import { OfferCardInfo } from '../../dataTypes/offer.ts';
-import { AppRoute } from '../../dataTypes/enums/app-routes.tsx';
+import { OfferCardInfo } from '../../types/offer.ts';
+import { AppRoute } from '../../types/enums/app-routes.tsx';
 import { memo } from 'react';
+import { BookmarkButton } from '../bookmark-button.tsx';
 
 interface OfferCardProps {
   offer: OfferCardInfo;
@@ -37,7 +38,7 @@ function OfferCardImpl({
             <b className="place-card__price-value">&euro;{offer.price}</b>
             <span className="place-card__price-text">&#47;&nbsp;night</span>
           </div>
-          <button>Add</button>
+          <BookmarkButton isFavorite={offer.isFavorite} usagePlace="place-card" offerId={offer.id}/>
         </div>
         <Rating rating={offer.rating} usePlace="place-card" />
         <h2 className="place-card__name">

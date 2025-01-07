@@ -4,7 +4,7 @@ import { fetchOffers } from '../store/actions.ts';
 import { changeCity } from '../store/offer/offer-slice.ts';
 import React, { memo } from 'react';
 
-import { City } from '../dataTypes/city.ts';
+import { City } from '../types/city.ts';
 
 
 interface CitiesListProps {

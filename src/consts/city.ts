@@ -1,4 +1,4 @@
-import { City } from '../dataTypes/city.ts';
+import { City } from '../types/city.ts';
 
 export const PARIS: City = {
   name: 'Paris',

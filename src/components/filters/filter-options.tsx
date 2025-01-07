@@ -1,5 +1,5 @@
-import { OfferCardInfo } from '../../dataTypes/offer';
-import { SortOffers } from '../../dataTypes/filter-type';
+import { OfferCardInfo } from '../../types/offer';
+import { SortOffers } from '../../types/filter-type';
 
 const createFilter = (filterFunction: (a: OfferCardInfo, b: OfferCardInfo) => number): SortOffers => (offers: OfferCardInfo[]) => [...offers].sort(filterFunction);
 

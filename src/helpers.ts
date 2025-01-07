@@ -1,4 +1,4 @@
-import { Review } from './dataTypes/review-type';
+import { Review } from './types/review-type';
 
 export function getRightSpelling(value: string, count: number): string {
   const wordEnd = count === 1 ? value : `${value}s`;

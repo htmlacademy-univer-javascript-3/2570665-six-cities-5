@@ -1,7 +1,7 @@
 import { Link } from 'react-router-dom';
 import { getIsAuthorized } from '../../store/user/user-selectors';
 import { AuthorizedHeaderInfo } from './authorized-user';
-import { AppRoute } from '../../dataTypes/enums/app-routes';
+import { AppRoute } from '../../types/enums/app-routes';
 import { UnauthorizedHeaderInfo } from './unauthorized-user';
 import { useAppDispatch, useAppSelector } from '../../hooks/store-hooks';
 import { fetchOffers } from '../../store/actions';
