@@ -1,11 +1,12 @@
-import { useMap } from '../hoocks/useMap';
-import { URL_MARKER_DEFAULT, URL_MARKER_CURRENT } from '../DataTypes/consts';
+import { useMap } from '../hooks/useMap';
 import {useRef, useEffect} from 'react';
-import leaflet from 'leaflet';
 import 'leaflet/dist/leaflet.css';
-import { City } from '../DataTypes/city';
-import { Offer } from '../DataTypes/offer-type';
+import { City } from '../dataTypes/city';
+import { Point } from '../dataTypes/point';
 import { Marker, layerGroup } from 'leaflet';
+import { URL_MARKER_DEFAULT, URL_MARKER_CURRENT } from '../consts/map';
+import leaflet from 'leaflet';
+
 
 const defaultCustomIcon = leaflet.icon({
   iconUrl: URL_MARKER_DEFAULT,
@@ -19,14 +20,16 @@ const currentCustomIcon = leaflet.icon({
   iconAnchor: [20, 40],
 });
 
+
 interface MapProps {
-    city: City;
-    points: Offer[];
-    selectedPoint: Offer | undefined;
-    isOnMainPage?: boolean;
+  city: City;
+  points: Point[];
+  selectedPoint: Point | undefined;
+  isOnMainPage?: boolean;
 }
 
-export function Map({city, points, selectedPoint, isOnMainPage}: MapProps) {
+export function Map(props: MapProps): React.JSX.Element {
+  const { city, points, selectedPoint, isOnMainPage } = props;
 
   const mapRef = useRef(null);
   const map = useMap(mapRef, city);
@@ -55,8 +58,11 @@ export function Map({city, points, selectedPoint, isOnMainPage}: MapProps) {
     }
   }, [map, points, selectedPoint]);
 
-  const className = isOnMainPage ? 'cities__map map' : 'offer__map map';
   return (
-    <section className={className} ref={mapRef}></section>
+    <section
+      className={`map ${isOnMainPage ? 'cities__map' : 'offer__map'}`}
+      ref={mapRef}
+    >
+    </section>
   );
 }

@@ -1,6 +1,12 @@
-import { Location } from './location.ts';
+import { Location } from './location';
 
 export type City = {
-    name: string;
-    location: Location;
-}
+  name:
+    | 'Paris'
+    | 'Cologne'
+    | 'Brussels'
+    | 'Amsterdam'
+    | 'Hamburg'
+    | 'Dusseldorf';
+  location: Location;
+};

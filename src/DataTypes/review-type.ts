@@ -1,9 +1,15 @@
-import { User } from './user';
+﻿import { User } from './user.ts';
 
 export type Review = {
-    user: User;
-    comment: string;
-    rating: number;
-    date: string;
-    id: string;
+  id: string;
+  date: string;
+  user: User;
+  comment: string;
+  rating: number;
+};
+
+export type ReviewShortInfo = {
+  offerId: string;
+  comment: string;
+  rating: number;
 };
