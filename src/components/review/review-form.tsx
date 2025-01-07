@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
 import { MIN_COMMENT_LENGTH, MAX_COMMENT_LENGTH } from '../../consts/review';
-import { ReviewStatus } from '../../dataTypes/enums/review-send-status';
+import { ReviewStatus } from '../../types/enums/review-send-status';
 import { postReview } from '../../store/actions';
 import { getCurrentOffer, getReviewPostingStatus } from '../../store/current/current-selector';
 import { setReviewPostingStatus } from '../../store/current/current-slice';

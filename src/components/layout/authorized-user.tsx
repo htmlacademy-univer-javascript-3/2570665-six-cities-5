@@ -1,5 +1,5 @@
 import { Link, useNavigate } from 'react-router-dom';
-import { AppRoute } from '../../dataTypes/enums/app-routes';
+import { AppRoute } from '../../types/enums/app-routes';
 import { logout } from '../../store/actions';
 import { getFavoritesOffers } from '../../store/offer/offer-selector';
 import { setFavoriteOffers} from '../../store/offer/offer-slice';

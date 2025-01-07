@@ -1,7 +1,7 @@
 import { Link } from 'react-router-dom';
 import { CITIES } from '../consts/city';
-import { AppRoute } from '../dataTypes/enums/app-routes';
-import { OfferCardInfo } from '../dataTypes/offer';
+import { AppRoute } from '../types/enums/app-routes';
+import { OfferCardInfo } from '../types/offer';
 import { changeCity } from '../store/offer/offer-slice';
 import { OffersList } from './offer/offers-list';
 import { useAppDispatch } from '../hooks/store-hooks';

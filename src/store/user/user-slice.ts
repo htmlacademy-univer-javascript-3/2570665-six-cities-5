@@ -1,6 +1,6 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
-import { AuthorizationStatus } from '../../dataTypes/enums/authorization-status';
-import { AuthInfo } from '../../dataTypes/authorization-info';
+import { AuthorizationStatus } from '../../types/enums/authorization-status';
+import { AuthInfo } from '../../types/authorization-info';
 
 
 type UserInitialState = {

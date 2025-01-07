@@ -1,5 +1,5 @@
 import React, { memo, useState } from 'react';
-import { SortOffers } from '../../dataTypes/filter-type';
+import { SortOffers } from '../../types/filter-type';
 import { setSorting } from '../../store/offer/offer-slice';
 import { useAppDispatch } from '../../hooks/store-hooks';
 import { filterOptions } from './filter-options';

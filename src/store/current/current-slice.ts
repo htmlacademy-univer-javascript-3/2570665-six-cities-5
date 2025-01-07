@@ -1,9 +1,9 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
 import { Nullable } from 'vitest';
-import { Offer } from '../../dataTypes/offer';
-import { OfferCardInfo } from '../../dataTypes/offer';
-import { ReviewStatus } from '../../dataTypes/enums/review-send-status';
-import { Review } from '../../dataTypes/review-type';
+import { Offer } from '../../types/offer';
+import { OfferCardInfo } from '../../types/offer';
+import { ReviewStatus } from '../../types/enums/review-send-status';
+import { Review } from '../../types/review-type';
 
 type CurrentOfferInitialState = {
   currentOffer: Nullable<Offer>;

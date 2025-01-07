@@ -1,6 +1,6 @@
 import React, { useCallback } from 'react';
 import { Nullable } from 'vitest';
-import { OfferCardInfo } from '../../dataTypes/offer';
+import { OfferCardInfo } from '../../types/offer';
 import { OfferCard } from './offer';
 
 interface OffersListProps {

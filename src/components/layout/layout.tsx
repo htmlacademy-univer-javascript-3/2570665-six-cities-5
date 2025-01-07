@@ -1,6 +1,6 @@
 import { Header } from './header.tsx';
 import { Link } from 'react-router-dom';
-import { AppRoute } from '../../dataTypes/enums/app-routes.tsx';
+import { AppRoute } from '../../types/enums/app-routes.tsx';
 
 interface LayoutProps {
   children: React.JSX.Element;

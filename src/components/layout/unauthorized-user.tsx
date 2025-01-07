@@ -1,5 +1,5 @@
 import { Link } from 'react-router-dom';
-import { AppRoute } from '../../dataTypes/enums/app-routes';
+import { AppRoute } from '../../types/enums/app-routes';
 
 export function UnauthorizedHeaderInfo() {
   return (

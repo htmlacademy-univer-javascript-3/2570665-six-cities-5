@@ -1,8 +1,8 @@
 import { createSelector } from '@reduxjs/toolkit';
-import { State } from '../../dataTypes/state';
-import { City } from '../../dataTypes/city';
-import { OfferCardInfo } from '../../dataTypes/offer';
-import { SortOffers } from '../../dataTypes/filter-type';
+import { State } from '../../types/state';
+import { City } from '../../types/city';
+import { OfferCardInfo } from '../../types/offer';
+import { SortOffers } from '../../types/filter-type';
 
 type OffersState = Pick<State, 'Offers'>;
 

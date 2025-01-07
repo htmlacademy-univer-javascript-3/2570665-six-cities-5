@@ -1,6 +1,6 @@
 
 import { Helmet } from 'react-helmet-async';
-import { ErrorFragment } from '../../components/error/error';
+import { ErrorFragment } from '../../components/error-fragment/error-fragment';
 
 
 export function NotFoundPage(): React.JSX.Element {

@@ -1,5 +1,5 @@
-import { AuthorizationStatus } from '../../dataTypes/enums/authorization-status';
-import { State } from '../../dataTypes/state';
+import { AuthorizationStatus } from '../../types/enums/authorization-status';
+import { State } from '../../types/state';
 
 type UserState = Pick<State, 'User'>;
 

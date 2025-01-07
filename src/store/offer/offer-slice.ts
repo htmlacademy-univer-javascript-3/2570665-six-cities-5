@@ -1,9 +1,9 @@
 
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
 import { PARIS } from '../../consts/city';
-import { City } from '../../dataTypes/city';
-import { OfferCardInfo } from '../../dataTypes/offer';
-import { SortOffers } from '../../dataTypes/filter-type';
+import { City } from '../../types/city';
+import { OfferCardInfo } from '../../types/offer';
+import { SortOffers } from '../../types/filter-type';
 
 type OffersInitialState = {
   city: City;

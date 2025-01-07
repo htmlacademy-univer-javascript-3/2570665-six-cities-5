@@ -1,5 +1,5 @@
 ﻿import { MAX_REVIEWS_COUNT } from '../../consts/review';
-import { Review } from '../../dataTypes/review-type';
+import { Review } from '../../types/review-type';
 import { getIsAuthorized } from '../../store/user/user-selectors';
 import { ReviewForm } from './review-form';
 import { useAppSelector } from '../../hooks/store-hooks';

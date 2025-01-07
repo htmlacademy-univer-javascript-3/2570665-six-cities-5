@@ -1,8 +1,8 @@
 import { createSelector } from '@reduxjs/toolkit';
-import { State } from '../../dataTypes/state';
+import { State } from '../../types/state';
 import { MAX_NEARBY_OFFERS } from '../../consts/offer';
-import { OfferCardInfo } from '../../dataTypes/offer';
-import { Review } from '../../dataTypes/review-type';
+import { OfferCardInfo } from '../../types/offer';
+import { Review } from '../../types/review-type';
 
 
 type CurrentOfferState = Pick<State, 'CurrentOffer'>;
